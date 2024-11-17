@@ -1,0 +1,80 @@
+/* router.css */
+
+/* Sidebar styling */
+
+#root {
+  display: flex;
+}
+#sidebar {
+  width: 300px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-right: 2px solid #ddd;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+#sidebar h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Forms */
+form {
+  margin-bottom: 1rem;
+}
+
+#search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#search-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#search-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#search-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Detail section styling */
+#detail {
+  /* margin-left: 320px; */
+  padding: 20px;
+}

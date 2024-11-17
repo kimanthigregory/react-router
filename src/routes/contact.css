@@ -1,0 +1,80 @@
+/* contact.css */
+
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+#contact img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+#contact h1 {
+  font-size: 24px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#contact h1 button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: gold;
+  cursor: pointer;
+}
+
+#contact p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+#contact a {
+  color: #1da1f2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+#contact div:last-child {
+  margin-top: 10px;
+}
+
+#contact button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#contact button:hover {
+  background: #0056b3;
+}
+
+#contact button.delete {
+  background: #dc3545;
+}
+
+#contact button.delete:hover {
+  background: #a71d2a;
+}

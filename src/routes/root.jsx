@@ -1,19 +1,15 @@
 import "../routes/router.css";
-import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
+import { Outlet, Link, useLoaderData, Form, redirect } from "react-router-dom";
 import { getContacts, createContacts } from "./contacts";
 
-export async function loader({ params }) {
-  const contacts = await getContacts();
-  const contact = contacts.find((c) => c.id === params.contactId);
-  if (!contact) {
-    throw new Response("Not Found", { status: 404 });
-  }
-  return { contact };
+export async function loader() {
+  const contacts = await getContacts(); // Fetch all contacts
+  return { contacts }; // Return the contacts to the component
 }
 
 export async function action() {
-  const newContact = await createContacts();
-  return { newContact };
+  const contact = await createContacts();
+  return redirect(`/contacts/${contact.id}/edit`);
 }
 export default function Root() {
   const { contacts } = useLoaderData();

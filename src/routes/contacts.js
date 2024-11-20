@@ -1,40 +1,60 @@
+let contacts = [
+  {
+    id: "1",
+    first: "John",
+    last: "Doe",
+    avatar: "https://robohash.org/1.png?size=200x200",
+    twitter: "john_doe",
+    notes: "Some notes about John",
+    favorite: true,
+  },
+  {
+    id: "2",
+    first: "Jane",
+    last: "Smith",
+    avatar: "https://robohash.org/2.png?size=200x200",
+    twitter: "jane_smith",
+    notes: "Some notes about Jane",
+    favorite: false,
+  },
+];
+
+console.log(contacts);
 export async function getContacts() {
-  return [
-    {
-      id: "1",
-      first: "John",
-      last: "Doe",
-      avatar: "https://robohash.org/1.png?size=200x200",
-      twitter: "john_doe",
-      notes: "Some notes about John",
-      favorite: true,
-    },
-    {
-      id: "2",
-      first: "Jane",
-      last: "Smith",
-      avatar: "https://robohash.org/2.png?size=200x200",
-      twitter: "jane_smith",
-      notes: "Some notes about Jane",
-      favorite: false,
-    },
-  ];
+  return contacts;
 }
 
-export async function createContacts(newContact) {
-  // Simulate generating a new contact ID (e.g., from the server or database)
-  const contactId = Date.now().toString(); // Using timestamp as unique ID
-
-  // Simulate the new contact data
+export async function createContacts() {
+  const contactId = Date.now().toString(); // Unique ID
   const createdContact = {
     id: contactId,
-    first: newContact.first || "",
-    last: newContact.last || "",
-    favorite: newContact.favorite || false,
+    first: "",
+    last: "",
+    favorite: false,
+    twitter: "",
+    notes: "",
+    avatar: ``,
   };
 
-  // In a real-world scenario, here we would save the contact to a database or API.
-  // For this example, we will just return the created contact.
-
+  contacts.push(createdContact); // Add the new contact to the list
   return createdContact;
+}
+
+// Function to update the contact
+export async function updateContact(contactId, updatedFields) {
+  const contactIndex = contacts.findIndex(
+    (contact) => contact.id === contactId
+  );
+  if (contactIndex === -1) {
+    throw new Error(`Contact with ID ${contactId} not found`);
+  }
+  console.log(updatedFields);
+
+  // Update the contact's fields
+  contacts[contactIndex] = {
+    ...contacts[contactIndex],
+    ...updatedFields,
+  };
+
+  return contacts[contactIndex]; // Return the updated contact
 }

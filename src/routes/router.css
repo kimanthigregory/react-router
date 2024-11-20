@@ -5,58 +5,58 @@
 #root {
   display: flex;
 }
+/* General Layout */
 #sidebar {
-  width: 300px;
+  width: 300px; /* Fixed width for sidebar */
   padding: 20px;
-  background-color: #f4f4f4;
-  border-right: 2px solid #ddd;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
+  background-color: #f9f9f9; /* Light gray background */
+  border-right: 1px solid #ddd; /* Subtle border */
+  height: 100vh; /* Full-height sidebar */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
 #sidebar h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 1rem;
 }
-
-/* Forms */
-form {
-  margin-bottom: 1rem;
-}
-
+/* Search Form */
 #search-form {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-#search-form input {
-  flex: 1;
-  padding: 8px;
+#search-form input[type="search"] {
+  width: 100%;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 14px;
+  color: #333;
 }
 
 #search-form button {
+  padding: 10px 15px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 8px 12px;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 #search-form button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Navigation */
+/* Contact List */
 nav ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 nav ul li {
@@ -65,16 +65,42 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #007bff;
-  font-size: 1rem;
+  font-size: 16px;
+  color: #333;
+  padding: 8px 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  background-color: #e0e0e0; /* Subtle gray background */
 }
 
-/* Detail section styling */
-#detail {
-  /* margin-left: 320px; */
-  padding: 20px;
+nav ul li a:focus,
+nav ul li a.selected {
+  background-color: #007bff; /* Highlight selected */
+  color: #fff; /* White text on highlight */
+}
+
+/* Favorite Star */
+nav ul li a span {
+  color: #f39c12; /* Gold color for the star */
+  font-size: 18px;
+}
+
+/* Empty State */
+nav p {
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
 }

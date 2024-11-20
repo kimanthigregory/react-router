@@ -1,0 +1,70 @@
+/* edit.css */
+
+/* General form styling */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Spacing between form elements */
+  max-width: 500px;
+  margin: 0 auto; /* Center the form */
+  font-family: Arial, sans-serif;
+  padding-left: 1rem;
+}
+
+/* Input and textarea styling */
+#contact-form input,
+#contact-form textarea {
+  width: 100%; /* Make inputs span the form's width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#contact-form textarea {
+  resize: none; /* Prevent resizing */
+}
+
+/* Label and span styling */
+#contact-form label,
+#contact-form span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Name inputs on the same line */
+#contact-form p {
+  display: flex;
+  gap: 10px; /* Space between the first and last name inputs */
+}
+
+#contact-form p input {
+  flex: 1; /* Make both inputs equal width */
+}
+
+/* Buttons styling */
+#contact-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contact-form button[type="submit"] {
+  background-color: #4caf50; /* Green for save */
+  color: white;
+}
+
+#contact-form button[type="button"] {
+  background-color: #f44336; /* Red for cancel */
+  color: white;
+  margin-left: 10px; /* Add spacing between buttons */
+}
+
+/* Button hover effects */
+#contact-form button:hover {
+  opacity: 0.9;
+}

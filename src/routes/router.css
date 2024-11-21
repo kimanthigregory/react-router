@@ -1,106 +1,129 @@
-/* router.css */
-
-/* Sidebar styling */
-
-#root {
-  display: flex;
+/* General reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
-/* General Layout */
+
+/* Sidebar styles */
 #sidebar {
-  width: 300px; /* Fixed width for sidebar */
+  width: 300px;
+  background-color: #f4f4f4;
   padding: 20px;
-  background-color: #f9f9f9; /* Light gray background */
-  border-right: 1px solid #ddd; /* Subtle border */
-  height: 100vh; /* Full-height sidebar */
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+}
+
+#sidebar h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#sidebar form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-#sidebar h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-/* Search Form */
-#search-form {
-  display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-#search-form input[type="search"] {
-  width: 100%;
+#sidebar input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 14px;
-  color: #333;
+  font-size: 1rem;
 }
 
-#search-form button {
+#sidebar button {
   padding: 10px 15px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-#search-form button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+#sidebar button:hover {
+  background-color: #0056b3;
 }
 
-/* Contact List */
-nav ul {
-  list-style-type: none;
+/* Navigation styles */
+#sidebar nav ul {
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-nav ul li {
+#sidebar nav li {
   margin-bottom: 10px;
 }
 
-nav ul li a {
+#sidebar nav a {
   text-decoration: none;
-  font-size: 16px;
   color: #333;
-  padding: 8px 10px;
+  font-size: 1rem;
+  padding: 8px 12px;
+  display: block;
   border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover {
-  background-color: #e0e0e0; /* Subtle gray background */
+/* Active and hover states */
+#sidebar nav a.active {
+  background-color: #007bff;
+  color: white;
 }
 
-nav ul li a:focus,
-nav ul li a.selected {
-  background-color: #007bff; /* Highlight selected */
-  color: #fff; /* White text on highlight */
+#sidebar nav a:hover:not(.active) {
+  background-color: #e9ecef;
+  color: #007bff;
 }
 
-/* Favorite Star */
-nav ul li a span {
-  color: #f39c12; /* Gold color for the star */
-  font-size: 18px;
-}
-
-/* Empty State */
-nav p {
-  color: #888;
+#sidebar nav a.pending {
+  color: #6c757d;
   font-style: italic;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  #sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
+/* Detail section styles */
+#detail {
+  margin-left: 320px;
+  padding: 20px;
+  background-color: #1f1e1e;
+  height: 100vh;
+  overflow-y: auto;
+}
+/* Loading bar styles */
+#loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 10px;
+  visibility: hidden;
+  background-color: #007bff;
+  z-index: 9999;
+  transition: visibility 0.3s ease;
+}
+
+.loading-visible {
+  visibility: visible;
+  animation: loading-animation 0.5s ease-in-out infinite;
+}
+
+/* Loading animation (makes it smooth) */
+@keyframes loading-animation {
+  0% {
+    transform: translateX(-100%);
   }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.loading {
+  width: 1000px;
 }

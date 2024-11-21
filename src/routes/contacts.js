@@ -19,7 +19,6 @@ let contacts = [
   },
 ];
 
-console.log(contacts);
 export async function getContacts() {
   return contacts;
 }
@@ -48,7 +47,6 @@ export async function updateContact(contactId, updatedFields) {
   if (contactIndex === -1) {
     throw new Error(`Contact with ID ${contactId} not found`);
   }
-  console.log(updatedFields);
 
   // Update the contact's fields
   contacts[contactIndex] = {
@@ -57,4 +55,17 @@ export async function updateContact(contactId, updatedFields) {
   };
 
   return contacts[contactIndex]; // Return the updated contact
+}
+
+// Function to delete a contact
+export async function deleteContact(contactId) {
+  const contactIndex = contacts.findIndex(
+    (contact) => contact.id === contactId
+  );
+  if (contactIndex === -1) {
+    throw new Error(`Contact with ID ${contactId} not found`);
+  }
+
+  // Remove the contact from the array
+  contacts.splice(contactIndex, 1);
 }

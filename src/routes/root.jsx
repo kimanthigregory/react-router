@@ -1,5 +1,12 @@
 import "../routes/router.css";
-import { Outlet, Link, useLoaderData, Form, redirect } from "react-router-dom";
+import {
+  Outlet,
+  NavLink,
+  useLoaderData,
+  Form,
+  redirect,
+  useNavigation,
+} from "react-router-dom";
 import { getContacts, createContacts } from "./contacts";
 
 export async function loader() {
@@ -11,10 +18,23 @@ export async function action() {
   const contact = await createContacts();
   return redirect(`/contacts/${contact.id}/edit`);
 }
+
 export default function Root() {
   const { contacts } = useLoaderData();
+  const navigation = useNavigation();
+  console.log(navigation.state);
+
   return (
     <>
+      {/* Loading Bar */}
+      <div className="loading">
+        <div
+          id="loading-bar"
+          className={navigation.state == "idle" ? "loading-visible" : ""}
+        >
+          .
+        </div>
+      </div>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
         <div>
@@ -38,7 +58,12 @@ export default function Root() {
             <ul>
               {contacts.map((contact) => (
                 <li key={contact.id}>
-                  <Link to={`contacts/${contact.id}`}>
+                  <NavLink
+                    to={`contacts/${contact.id}`}
+                    className={({ isActive, isPending }) =>
+                      isActive ? "active" : isPending ? "pending" : ""
+                    }
+                  >
                     {contact.first || contact.last ? (
                       <>
                         {contact.first} {contact.last}
@@ -47,7 +72,7 @@ export default function Root() {
                       <i>No Name</i>
                     )}{" "}
                     {contact.favorite && <span>★</span>}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
